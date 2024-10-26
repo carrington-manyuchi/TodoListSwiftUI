@@ -4,7 +4,13 @@
 //
 //  Created by Manyuchi, Carrington C on 2024/10/26.
 //
-
+/*  CRUD FUNCTIONS
+ 
+ Create
+ Read
+ Update
+ Delete
+*/
 import Foundation
 
 
@@ -40,15 +46,12 @@ class ListViewModel: ObservableObject {
     }
     
     func updateItem(item: ItemModel) {
-        
 //        if let index = items.firstIndex(where: { existingItem in
 //            return existingItem.id == item.id
 //        }) {
-//            
 //        }
-        
         if let index = items.firstIndex(where: { $0.id == item.id }) {
-            items[index] = ItemModel(title: item.title, isCompleted: !item.isCompleted)
+            items[index] = item.updateCompletion()
         }
     }
     
